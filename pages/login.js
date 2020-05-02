@@ -8,9 +8,9 @@ import Layout from '../components/Layout';
 const AUTHENTICAR = gql`
     mutation authenticar($input:AuthenticarInput){
         authenticar(input:$input){
- 			token
-  	    }
-     }
+                token
+        }
+    }
 `;
 
 const Login = () => {
