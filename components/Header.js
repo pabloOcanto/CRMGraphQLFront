@@ -16,12 +16,6 @@ const CONSULTAR_USUARIO=gql`
 const Header = () => {
 
     const router = useRouter();
-    const token = localStorage.getItem("token");
-
-    if(!token){
-        router.push("/login");
-    }
-
 
     const {data,error,loading} =  useQuery(CONSULTAR_USUARIO);
 
