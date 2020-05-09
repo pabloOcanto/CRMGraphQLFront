@@ -15,6 +15,8 @@ const AUTHENTICAR = gql`
 
 const Login = () => {
 
+
+
     const [authenticar] = useMutation(AUTHENTICAR);
     const [mensaje, guardarMensaje] = useState(null);
     const router = useRouter();
@@ -37,6 +39,9 @@ const Login = () => {
             const {email,password}= values;
 
             try {
+
+                localStorage.removeItem("token");
+                
                 const {data} = await authenticar({
                     variables:{
                         input:{
@@ -46,13 +51,21 @@ const Login = () => {
                     }
                 }); 
 
+
+
                 const {token} = data.authenticar;
-               
+
+                console.log(token);
+                
                 localStorage.setItem("token",token);
 
                 guardarMensaje(`Usuario esta authenticado`);
 
+
                 setTimeout(()=>{
+
+
+
                     guardarMensaje(null);
                     router.push("/");
                 },2000);

@@ -31,13 +31,12 @@ const Index =()=>  {
     )
   }
 
-  if (!data.obtenerClientesVendedor){
-    router.push("/login");
-  }
+  if(loading) return 'Cargando....';
 
-  const crearCliente=()=>{
-    router.push("/nuevocliente");
-  }
+
+  if( !data.obtenerClientesVendedor ) {
+    return router.push('/login');
+  } 
 
 
   return (
