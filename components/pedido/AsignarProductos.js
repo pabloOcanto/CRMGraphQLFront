@@ -27,6 +27,7 @@ const AsignarProductos = () => {
 
     useEffect(
         ()=>{
+            console.log("agregarProductos",productos);
             agregarProductos(productos);
         },[productos]);
     

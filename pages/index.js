@@ -33,6 +33,9 @@ const Index =()=>  {
 
   if(loading) return 'Cargando....';
 
+  if (error){
+    return router.push('/login');
+  }
 
   if( !data.obtenerClientesVendedor ) {
     return router.push('/login');

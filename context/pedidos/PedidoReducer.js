@@ -1,7 +1,8 @@
 import {
     SELECCIONAR_CLIENTE,
     SELECCIONAR_PRODUCTO,
-    CANTIDAD_PRODUCTOS
+    CANTIDAD_PRODUCTOS,
+    ACTUALIZAR_TOTAL
 } from "../../type"
 
 export default (state,action)=>{
@@ -18,7 +19,19 @@ export default (state,action)=>{
             return{
                 ...state,
                 productos:action.payload
-        }    
+        }
+        
+        case CANTIDAD_PRODUCTOS:
+            return{
+                ...state,
+                productos:state.productos.map( producto => producto.id === action.payload.id ? producto = action.payload : producto)
+        }
+        
+        case ACTUALIZAR_TOTAL:
+            return {
+                ...state,
+                total:state.productos.reduce( (nuevoTotal,producto)=> nuevoTotal+=producto.cantidad * producto.precio,0 )
+            }
 
         default:
             return state;
