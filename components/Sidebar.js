@@ -22,7 +22,7 @@ const Sidebar = () => {
                     </li>
 
                     <li className={router.pathname === "/pedidos" ? "bg-blue-800 p-3":"p-3"}>
-                    <Link href="/pedidos">
+                   <Link href="/pedidos">
                          <a className="text-white mb-2 block">
                         pedidos
                         </a>

@@ -23,7 +23,7 @@ const Header = () => {
         return (<div>Cargando...</div>);
     }
 
-    if (!data){
+    if (!data.obtenerUsuario){
         router.push("/login");
     }
 
@@ -31,7 +31,7 @@ const Header = () => {
 
     const eliminarSession = ()=>{
         localStorage.removeItem("token");
-        router.push("/login")
+        router.push("/login");
     }
 
     const {nombre,apellido} = data.obtenerUsuario;

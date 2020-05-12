@@ -1,4 +1,6 @@
-import Head from 'next/head'
+import React,{useEffect} from 'react';
+import Head from 'next/head';
+import Router from 'next/router';
 import {gql,useQuery} from '@apollo/client';
 import {useRouter} from 'next/router';
 import Layout from '../components/Layout';
@@ -25,11 +27,11 @@ const Index =()=>  {
   const router = useRouter();
 
 
-  if (loading){
-    return (
-      <div>Cargando...</div>
-    )
-  }
+  useEffect(
+    ()=>{
+      Router.prefetch("/");
+    },[])
+
 
   if(loading) return 'Cargando....';
 
@@ -39,7 +41,11 @@ const Index =()=>  {
 
   if( !data.obtenerClientesVendedor ) {
     return router.push('/login');
-  } 
+  }
+  
+  const crearCliente = ()=>{
+    router.push('/nuevocliente');
+  }
 
 
   return (

@@ -1,5 +1,6 @@
 import {ApolloClient,createHttpLink,InMemoryCache} from '@apollo/client';
 import {setContext} from 'apollo-link-context';
+import {onError} from 'apollo-link-error';
 import fetch from 'node-fetch';
 
 const httpLink = createHttpLink({
@@ -23,7 +24,7 @@ const authLink = setContext((_,{headers})=>{
         }
     }
 
-})
+});
 
 
 const client = new ApolloClient({

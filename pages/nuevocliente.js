@@ -121,9 +121,11 @@ const NUEVO_CLIENTE = () => {
 
     return (
         <Layout>
-            <h1 className="text-2xl text-gray-800 font-light">Clientes</h1>
+    
             <div className="flex justify-center">
                 <div className="w-full max-w-lg">
+
+                <h1 className="text-center text-2xl text-gray-800 font-bold mb-2">Cliente</h1>
 
                 {mensaje && mostrarMensaje() }
 
