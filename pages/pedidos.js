@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import Pedido from '../components/Pedido';
 import Link from 'next/link';
+import {useRouter} from "next/router";
 import { gql, useQuery } from '@apollo/client'
 
 const OBTENER_PEDIDOS = gql`

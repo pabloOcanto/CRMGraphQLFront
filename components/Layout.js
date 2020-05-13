@@ -27,6 +27,8 @@ const Layout = ({children}) => {
             )
            :
            (
+
+            <>
             <div className="bg-gray-200 min-h-screen">
                 <div className="flex min-h-screen">
                     <Sidebar/>
@@ -36,7 +38,11 @@ const Layout = ({children}) => {
                     </main>
                     
                 </div>
-           </div>   
+    
+           </div>
+
+            </>
+
            )
 
        }

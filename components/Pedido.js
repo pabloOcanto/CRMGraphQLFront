@@ -43,7 +43,8 @@ const OBTENER_PEDIDOS = gql`
 
 const Pedido = ({pedido}) => {
         
-    const {estado,cliente:{email,telefono,nombre,apellido},total,cliente}=pedido
+    const { id, total, cliente: { nombre, apellido, telefono, email }, estado, cliente } = pedido;
+
 
     const [acutlizarEstadoPedido] = useMutation(ACTUALIZAR_PEDIDO);
     const [eliminarPedido] = useMutation(ELIMINAR_PEDIDO,{
@@ -86,15 +87,18 @@ const Pedido = ({pedido}) => {
 
         try {
 
-            const {data} = await acutlizarEstadoPedido({
-                variables:{
-                    id:pedido.id,
+            const { data } = await acutlizarEstadoPedido({
+                variables: {
+                    id, 
                     input: {
                         estado: nuevoEstado,
                         cliente: cliente.id
                     }
-                }    
+                }
             });
+
+            setEstadoPedido(data.actualizarPedido.estado);
+
 
             const {estado} = data.actualizarPedido;
             setEstadoPedido(estado);
