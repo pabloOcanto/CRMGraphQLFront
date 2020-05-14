@@ -33,6 +33,8 @@ const Pedidos = () => {
 
   if(loading) return 'Cargando...';
 
+  if(!data.obtenerPedidosVendedor) return 'No hay pedido...';
+
   const { obtenerPedidosVendedor } = data;
 
   console.log(" obtenerPedidosVendedor", obtenerPedidosVendedor);

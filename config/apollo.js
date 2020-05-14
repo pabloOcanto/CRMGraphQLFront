@@ -4,9 +4,8 @@ import {onError} from 'apollo-link-error';
 import fetch from 'node-fetch';
 import Router from "next/router";
 
-
 const httpLink = createHttpLink({
-    uri:"http://localhost:4000/",
+    uri:process.env.URI || "http://localhost:4000",
     fetch
 });
 
@@ -15,7 +14,7 @@ const logoutLink = onError(({ graphQLErrors,networkError }) => {
     if (graphQLErrors){
         graphQLErrors.map(({ message, locations, path, extensions}) =>{
             if (extensions.code === "UNAUTHENTICATED"){
-                //localStorage.removeItem("token");
+                localStorage.removeItem("token");
                 Router.push("/login");
             }}
         );

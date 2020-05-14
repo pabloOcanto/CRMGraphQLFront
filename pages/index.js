@@ -27,17 +27,11 @@ const Index =()=>  {
   const router = useRouter();
 
 
-  useEffect(
-    ()=>{
-      Router.prefetch("/");
-    },[])
-
-
   if(loading) return 'Cargando....';
 
-  if (error){
-    return router.push('/login');
-  }
+  //if (error){
+ //   return router.push('/login');
+  //}
 
   if( !data.obtenerClientesVendedor ) {
     return router.push('/login');
